@@ -17,8 +17,6 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>
 #
-# $Id: package.sh 82 2021-12-04 21:46:54Z rhubarb-geek-nz $
-#
 
 cleanup()
 {
@@ -29,8 +27,8 @@ cleanup
 
 trap cleanup 0
 
-SVNVER=$(echo $( svn log -q "$0" | grep -v "\-----------" | wc -l)-1 | bc)
-VERSION="1.0.$SVNVER"
+GITVER=$(echo $( git log --oneline "$0" | wc -l)-1 | bc)
+VERSION="1.0.$GITVER"
 DPKGARCH=all
 DEPENDS="locales"
 APPNAME=rhubarb-pi-locales
