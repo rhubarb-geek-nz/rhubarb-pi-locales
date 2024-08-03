@@ -17,7 +17,7 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>
 #
-# $Id: package.sh 64 2021-11-14 14:10:32Z rhubarb-geek-nz $
+# $Id: package.sh 82 2021-12-04 21:46:54Z rhubarb-geek-nz $
 #
 
 cleanup()
@@ -79,7 +79,7 @@ test -f "/etc/locale.gen"
 	) > "/etc/locale.gen.tmp"
 )
 
-if diff "/etc/locale.gen" "/etc/locale.gen.tmp"
+if diff "/etc/locale.gen" "/etc/locale.gen.tmp" --brief >/dev/null
 then
 	rm "/etc/locale.gen.tmp"
 else
